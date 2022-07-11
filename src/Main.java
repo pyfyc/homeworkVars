@@ -19,49 +19,62 @@ public class Main {
         float totalWeight = fighter1Weight + fighter2Weight;
         System.out.println("Общий вес двух бойцов: " + totalWeight + " кг.");
 
-        float weightDiff = fighter2Weight - fighter1Weight;
+        float weightDiff = Math.abs(fighter1Weight - fighter2Weight);
         System.out.println("Разница между весами: " + weightDiff + " кг.");
 
         // Task 3
-        byte banana = 80;
-        byte milk = 105;
-        byte icecream = 100;
-        byte egg = 70;
+        int banana = 5;
+        int bananaWeight = 80;
 
-        int breakfastGramms = (5 * banana) + (2 * milk) + (2 * icecream) + (4 * egg);
-        System.out.println("Вес спорт-завтрака: " + breakfastGramms + " грамм");
-        System.out.println("Вес спорт-завтрака: " + breakfastGramms / 1000 + " кг. и " + breakfastGramms % 1000 + " грамм");
+        int milk = 200 / 100;
+        int milkWeight = 105;
+
+        int iceCream = 2;
+        int iceCreamWeight = 100;
+
+        int egg = 4;
+        int eggWeight = 70;
+
+        int breakfastGramms = (banana * bananaWeight) + (milk * milkWeight) + (iceCream * iceCreamWeight) + (egg * eggWeight);
+        int gramsInKg = 1000;
+        double breakfastKgs = breakfastGramms / (gramsInKg * 1.0);
+
+        System.out.println("Вес спорт-завтрака: " + breakfastGramms + " грамм.");
+        System.out.println("Вес спорт-завтрака: " + breakfastKgs + " кг.");
 
         // Task 4
-        byte days250 = 7000 / 250;
-        byte days500 = 7000 / 500;
+        int weight = 7;
+        int weightInGrams = weight * gramsInKg;
 
-        System.out.println("Если худеть по 250 г. в день, то 7 кг. можно сбросить за " + days250 + " дней.");
-        System.out.println("Если худеть по 500 г. в день, то 7 кг. можно сбросить за " + days500 + " дней.");
-        System.out.println("В среднем похудеть можно за " + (days250 + days500) / 2 + " дней.");
+        int minGramsPerDay = 250;
+        int maxGramsPerDay = 500;
+
+        int minDays = weightInGrams / minGramsPerDay;
+        int maxDays = weightInGrams / maxGramsPerDay;
+        int avgDays = (minDays + maxDays) / 2;
+
+        System.out.println("Если худеть по 250 г. в день, то 7 кг. можно сбросить за " + maxDays + " дней.");
+        System.out.println("Если худеть по 500 г. в день, то 7 кг. можно сбросить за " + minDays + " дней.");
+        System.out.println("В среднем похудеть можно за " + avgDays + " дней.");
 
         // Task 5
-        int salaryMasha = 67760;
-        int salaryDenis = 83690;
-        int salaryKristina = 76230;
+        int percent = 10;
+        double multiplier = percent / (100 * 1.0);
 
-        int salaryMashaInc = salaryMasha + salaryMasha / 10;
-        int salaryDenisInc = salaryDenis + salaryDenis / 10;
-        int salaryKristinaInc = salaryKristina + salaryKristina / 10;
+        int salaryMasha = 67_760;
+        int salaryDenis = 83_690;
+        int salaryKristina = 76_230;
 
-        int salaryMashaYear = salaryMasha * 12;
-        int salaryDenisYear = salaryDenis * 12;
-        int salaryKristinaYear = salaryKristina * 12;
+        int salaryMashaInc = (int) (salaryMasha + salaryMasha * multiplier);
+        int salaryDenisInc = (int) (salaryDenis + salaryDenis * multiplier);
+        int salaryKristinaInc = (int) (salaryKristina + salaryKristina * multiplier);
 
-        int salaryMashaYearInc = salaryMashaInc * 12;
-        int salaryDenisYearInc = salaryDenisInc * 12;
-        int salaryKristinaYearInc = salaryKristinaInc * 12;
+        int salaryMashaDiff = (salaryMashaInc - salaryMasha) * 12;
+        int salaryDenisDiff = (salaryDenisInc - salaryDenis) * 12;
+        int salaryKristinaDiff = (salaryKristinaInc - salaryKristina) * 12;
 
-        System.out.println("Маша теперь получает " + salaryMashaInc + " рублей/месяц. " +
-                "Годовой доход вырос на " + (salaryMashaYearInc - salaryMashaYear) + " рублей.");
-        System.out.println("Денис теперь получает " + salaryDenisInc + " рублей/месяц. " +
-                "Годовой доход вырос на " + (salaryDenisYearInc - salaryDenisYear) + " рублей.");
-        System.out.println("Кристина теперь получает " + salaryKristinaInc + " рублей/месяц. " +
-                "Годовой доход вырос на " + (salaryKristinaYearInc - salaryKristinaYear) + " рублей.");
+        System.out.println("Маша теперь получает " + salaryMashaInc + " рублей/месяц. Годовой доход вырос на " + salaryMashaDiff + " рублей.");
+        System.out.println("Денис теперь получает " + salaryDenisInc + " рублей/месяц. Годовой доход вырос на " + salaryDenisDiff + " рублей.");
+        System.out.println("Кристина теперь получает " + salaryKristinaInc + " рублей/месяц. Годовой доход вырос на " + salaryKristinaDiff + " рублей.");
     }
 }
